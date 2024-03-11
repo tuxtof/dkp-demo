@@ -1,7 +1,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: myclaim2
+  name: myclaim3
 spec:
   accessModes:
     - ReadWriteOnce
@@ -12,16 +12,16 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web
+  name: web3
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: deployment-default-web
+      app: deployment-default-web3
   template:
     metadata:
       labels:
-        app: deployment-default-web
+        app: deployment-default-web3
     spec:
       containers:
       - image: nginx
@@ -32,4 +32,4 @@ spec:
       volumes:
       - name: vol1
         persistentVolumeClaim:
-          claimName: myclaim
+          claimName: myclaim3
